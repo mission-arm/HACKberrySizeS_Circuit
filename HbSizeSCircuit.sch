@@ -389,10 +389,9 @@
 <smd name="PIN0" x="5.08" y="-11.43" dx="2.8008" dy="1" layer="1"/>
 <text x="1.27" y="-8.89" size="1.27" layer="25" rot="R90">A Star 32u4 Micro</text>
 </package>
-<package name="MJ147D">
+<package name="MJ147D_2PIN">
 <pad name="PIN_1" x="0" y="0" drill="1" diameter="2.3" shape="long"/>
 <pad name="PIN_2" x="0" y="-9.3" drill="1" diameter="2.3" shape="long"/>
-<pad name="PIN_3" x="4.1" y="-7.9" drill="1" diameter="2" shape="long" rot="R90"/>
 <polygon width="0.05" layer="46">
 <vertex x="-1" y="-8.8"/>
 <vertex x="1" y="-8.8" curve="-90"/>
@@ -400,14 +399,6 @@
 <vertex x="1" y="-9.8"/>
 <vertex x="-1" y="-9.8" curve="-90"/>
 <vertex x="-1.5" y="-9.3" curve="-90"/>
-</polygon>
-<polygon width="0.05" layer="46">
-<vertex x="3.6" y="-8.9" curve="90"/>
-<vertex x="4.1" y="-9.4" curve="90"/>
-<vertex x="4.6" y="-8.9"/>
-<vertex x="4.6" y="-6.8" curve="90"/>
-<vertex x="4.1" y="-6.3" curve="100.388742"/>
-<vertex x="3.6" y="-6.9"/>
 </polygon>
 <polygon width="0.05" layer="46">
 <vertex x="-1" y="0.5"/>
@@ -492,9 +483,8 @@
 <wire x1="-17.78" y1="27.94" x2="-17.78" y2="-30.48" width="0.254" layer="94"/>
 <text x="-5.08" y="30.48" size="1.27" layer="94">A Star 32u4 Micro</text>
 </symbol>
-<symbol name="MJ147D">
+<symbol name="MJ147D_2PIN">
 <pin name="PIN_1" x="-5.08" y="2.54" length="middle"/>
-<pin name="PIN_2" x="-5.08" y="-5.08" length="middle"/>
 <pin name="PIN_3" x="-5.08" y="-12.7" length="middle"/>
 <wire x1="-2.54" y1="5.08" x2="-2.54" y2="-15.24" width="0.254" layer="94"/>
 <wire x1="-2.54" y1="-15.24" x2="10.16" y2="-15.24" width="0.254" layer="94"/>
@@ -611,16 +601,15 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="MJ147D">
+<deviceset name="MJ147D_2PIN">
 <gates>
-<gate name="G$1" symbol="MJ147D" x="0" y="0"/>
+<gate name="G$1" symbol="MJ147D_2PIN" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="MJ147D">
+<device name="" package="MJ147D_2PIN">
 <connects>
 <connect gate="G$1" pin="PIN_1" pad="PIN_1"/>
-<connect gate="G$1" pin="PIN_2" pad="PIN_2"/>
-<connect gate="G$1" pin="PIN_3" pad="PIN_3"/>
+<connect gate="G$1" pin="PIN_3" pad="PIN_2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -7505,10 +7494,10 @@ Source: AVX .. aphvc.pdf</description>
 <part name="U$12" library="HbHandBoard_SizeS" deviceset="53398-0371" device=""/>
 <part name="R3" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="M1206" package3d_urn="urn:adsk.eagle:package:26088/1" value="200Ω"/>
 <part name="U$6" library="HbHandBoard_SizeS" deviceset="POLOLU_A_STAR_32U4_MICRO_SMD" device=""/>
-<part name="U$10" library="HbHandBoard_SizeS" deviceset="MJ147D" device=""/>
 <part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R5" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="10kΩ"/>
+<part name="U$10" library="HbHandBoard_SizeS" deviceset="MJ147D_2PIN" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7920,32 +7909,32 @@ Source: AVX .. aphvc.pdf</description>
 <plain>
 </plain>
 <instances>
-<instance part="U$10" gate="G$1" x="15.24" y="17.78"/>
 <instance part="P+6" gate="1" x="0" y="58.42"/>
 <instance part="GND7" gate="1" x="0" y="-5.08"/>
 <instance part="R5" gate="G$1" x="0" y="40.64" rot="R90"/>
+<instance part="U$10" gate="G$1" x="15.24" y="20.32"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="SENSOR" class="0">
 <segment>
-<pinref part="U$10" gate="G$1" pin="PIN_1"/>
-<wire x1="10.16" y1="20.32" x2="0" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="22.86" x2="0" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="0" y1="35.56" x2="0" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="0" y1="25.4" x2="0" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="0" y1="25.4" x2="0" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="0" y1="25.4" x2="-17.78" y2="25.4" width="0.1524" layer="91"/>
 <junction x="0" y="25.4"/>
 <label x="-17.78" y="25.4" size="1.778" layer="95"/>
+<pinref part="U$10" gate="G$1" pin="PIN_1"/>
 </segment>
 </net>
 <net name="GND" class="0">
 <segment>
 <pinref part="GND7" gate="1" pin="GND"/>
-<pinref part="U$10" gate="G$1" pin="PIN_2"/>
-<wire x1="0" y1="-2.54" x2="0" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="0" y1="12.7" x2="10.16" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="0" y1="-2.54" x2="0" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="0" y1="7.62" x2="10.16" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="U$10" gate="G$1" pin="PIN_3"/>
 </segment>
 </net>
 <net name="+5V" class="0">
